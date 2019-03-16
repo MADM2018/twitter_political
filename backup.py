@@ -31,7 +31,10 @@ if __name__ == '__main__':
     with open(out_file, 'w') as f:
         for user_id in user_ids:
             print(user_id)
+
             for page in Cursor(api.user_timeline, user_id=user_id).pages():
                 for status in page:
                     data = json.dumps(status._json)
                     f.write(data)
+
+            time.sleep(900)  # 15 minutes delay
