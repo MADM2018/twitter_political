@@ -21,7 +21,7 @@ class CustomListener(StreamListener):
         month = now.month
         year = now.year
 
-        return "jsons/{}_stream_from_date_{}-{}-{}.jsonl".format(self.out_file_prefix, day, month, year)
+        return "downloads/{}_stream_from_date_{}-{}-{}.jsonl".format(self.out_file_prefix, day, month, year)
 
     def on_data(self, data):
         try:
@@ -49,5 +49,5 @@ if __name__ == '__main__':
     }
 
     auth = get_twitter_auth()
-    twitter_stream = Stream(auth, CustomListener('AA_Political'))
+    twitter_stream = Stream(auth, CustomListener('Spain_Political'))
     twitter_stream.filter(**filter)
