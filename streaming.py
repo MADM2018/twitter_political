@@ -48,6 +48,10 @@ if __name__ == '__main__':
         'follow': ['158342368', '2288138575', '68740712', '50982086', '523386042', '20509689', '108994652', '19028805', '260788584', '2201623465']
     }
 
-    auth = get_twitter_auth()
-    twitter_stream = Stream(auth, CustomListener('Spain_Political'))
-    twitter_stream.filter(**filter)
+    while True:
+        try:
+            auth = get_twitter_auth()
+            twitter_stream = Stream(auth, CustomListener('Spain_Political'))
+            twitter_stream.filter(**filter)
+        except Exception as e:
+            pass
